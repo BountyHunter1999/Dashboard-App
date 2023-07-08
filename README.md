@@ -10,6 +10,7 @@
 2. **Elasticsearch**: a search engine based on the leucine library.
 
    - It provides a distributed, full text search engine with an HTTP web interface and schema-free JSON documents.
+   - [Python ElasticSearch](https://elasticsearch-py.readthedocs.io/en/v7.13.0/)
 
 3. **Kibana**: an excellent tool for visualising the contents of our elasticsearch database/index.
 

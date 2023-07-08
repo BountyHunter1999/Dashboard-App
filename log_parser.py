@@ -9,23 +9,22 @@ load_dotenv()
 
 
 class LogParser:
-    
     @staticmethod
     def fetch_log(file_obj):
         for row in file_obj:
             yield row
-    
+
     @staticmethod
     def read_log_file():
         filename = os.environ.get("LOG_FILE")
         return open(filename, "r")
-    
+
     @staticmethod
     def serialize_log(log):
         log.strip()
         get_message = log.split(" ")
         if len(get_message):
-            message =  " ".join(get_message[3:])
+            message = " ".join(get_message[3:])
             message_type = get_message[2]
             if message_type not in ["INFO", "ERROR", "CRITICAL", "WARNING"]:
                 return None
@@ -35,8 +34,6 @@ class LogParser:
         log_dict = {
             "message": message.strip(),
             "timestamp": _datetime,
-            "type": message_type
+            "type": message_type,
         }
         return log_dict
-
-    

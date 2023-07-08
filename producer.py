@@ -1,11 +1,17 @@
 import json
 import time
+import os
 from confluent_kafka import Producer
+from dotenv import load_dotenv
+
+load_dotenv()
+
+BOOTSTRAP_SERVERS = os.environ.get("BOOTSTRAP_SERVERS")
 
 
 class KafkaProducer:
     def __init__(self):
-        self.bootstrap_servers = "localhost:29092"
+        self.bootstrap_servers = BOOTSTRAP_SERVERS
         self.topic = "data_log"
         self.p = Producer({"bootstrap.servers": self.bootstrap_servers})
 
